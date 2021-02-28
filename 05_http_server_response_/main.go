@@ -7,14 +7,17 @@ import (
 )
 
 func main() {
-	//request
-	nwt, err := net.Listen("tcp", "localhost:7777")
+	//==>Requst send web browser
+	// 1 request listen
+	nwt, err := net.Listen("tcp", ":8888")
+	//error handling
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
 	}
-	//connection acccept session start
+	// 2 connection acccept session start
 	conn, err := nwt.Accept()
+	//error handling
 	if err != nil {
 		fmt.Println(err.Error())
 	}
@@ -22,28 +25,35 @@ func main() {
 	fmt.Println(conn.RemoteAddr().String())
 	//byte string
 	bs := make([]byte, 1024)
+	// 3 byte string received and pass
 	sizeint, e := conn.Read(bs)
 	if e != nil {
 		fmt.Println(e.Error())
 	}
+	//byte string size
 	fmt.Println(sizeint)
-	//request in string
+	//4 request in conversion string
 	reqstr := string(bs)
+	//web browser request  print
 	fmt.Println(reqstr)
-	//response
-	body := `<!DOCTYPE html>
+	//5 write response body
+	body := `
+	<!DOCTYPE html>
 	<html>
 	<head>
-	<title>Page Title</title>
+	<title>First test</title>
 	</head>
 	<body>
 	<h1>This is Md.Nihad Hossain</h1>
 	</body>
 	</html>`
+	// 6 response field must be write
 	resp := "HTTP/1.1 200 ok \r\n" + "Content-length : %d\r\n" + "content-type : text/html \r\n" + "\r\n%s"
+	// 7 formatting response
 	msg := fmt.Sprintf(resp, len(body), body)
-	// fmt.Println(msg)
-
+	//print response
+	fmt.Println(msg)
+	// 8 finally send response
 	conn.Write([]byte(msg))
 	// conn.Close()
 	// nwt.Close()
