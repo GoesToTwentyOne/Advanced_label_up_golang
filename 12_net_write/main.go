@@ -21,6 +21,9 @@ func main() {
 		io.WriteString(conn, "\nHello from tcp server\n")
 		fmt.Fprintf(conn, "How is your day!\n")
 		fmt.Fprintf(conn, "well")
+
+		//conn.Write([]byte("Nihad Hossain"))
+
 		conn.Close()
 
 	}
