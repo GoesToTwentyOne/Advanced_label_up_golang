@@ -14,7 +14,6 @@ func main() {
 	var input string
 	fmt.Scanln(&input)
 	fmt.Printf("Hello")
-
 }
 func ping(c chan string) {
 	for i := 0; i < 10; i++ {
