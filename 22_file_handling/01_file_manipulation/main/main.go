@@ -10,6 +10,7 @@ import (
 
 func main() {
 	//calling
+	fileOperation()
 
 	dir, err := os.Getwd()
 	if err != nil {
@@ -37,4 +38,17 @@ func main() {
 
 func show() {
 	name.Name()
+}
+
+//checking file catagory
+func fileOperation() {
+	fileINFO, err := os.Stat("../file_create_root_dir/fun.go")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(fileINFO.IsDir())
+	fmt.Println(fileINFO.ModTime().Date())
+	fmt.Println(fileINFO.ModTime())
+	fmt.Println(fileINFO.Size())
+
 }
