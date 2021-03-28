@@ -28,11 +28,16 @@ func main() {
 	absulatePATH, _ := filepath.Abs("../filemk")
 	// fmt.Println(absulatePATH)
 	//make another folder
-	nePATH := filepath.Join(absulatePATH, "../", "../", "04_file")
-	err := os.Mkdir(nePATH, 777)
+	// nePATH := filepath.Join(absulatePATH, "../", "../", "04_file")
+	// err := os.Mkdir(nePATH, 777)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// fmt.Println(nePATH)
+	newPATH2 := filepath.Join(absulatePATH, "myfile")
+	err := os.Mkdir(newPATH2, 777)
 	if err != nil {
 		log.Fatal(err)
 	}
-	// fmt.Println(nePATH)
 
 }
