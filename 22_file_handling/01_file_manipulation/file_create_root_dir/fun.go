@@ -1,5 +1,5 @@
 package name
 	 import "fmt"
 	func Name(){
-		fmt.Println("Hello Gi ")
+		fmt.Println("Hello Hi ")
 	}
