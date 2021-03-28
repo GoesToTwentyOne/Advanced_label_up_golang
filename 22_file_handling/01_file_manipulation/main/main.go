@@ -9,6 +9,8 @@ import (
 )
 
 func main() {
+	//calling
+
 	dir, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
@@ -17,17 +19,22 @@ func main() {
 	fmt.Println(dir)
 
 	//file create with os method
-	pointerFile, _ := os.Create("file_create/fun.go")
-	defer pointerFile.Close()
+	pointerFile, _ := os.Create("../file_create_root_dir/fun.go")
+
 	nINT, _ := pointerFile.Write([]byte(
 
 		`package name
 	 import "fmt"
 	func Name(){
-		fmt.Println("Hello this is me")
+		fmt.Println("Hello Gi ")
 	}`))
+	pointerFile.Close()
 
 	fmt.Println(nINT)
-	name.Name()
+	show()
 
+}
+
+func show() {
+	name.Name()
 }
