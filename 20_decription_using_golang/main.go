@@ -44,6 +44,6 @@ func decription(d string) {
 		fmt.Println(err.Error())
 		os.Exit(1)
 	}
-	fmt.Println("Your decription data : ", string(data))
+	fmt.Println("Your decription data : ", (data))
 
 }
